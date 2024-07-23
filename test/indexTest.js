@@ -1,10 +1,13 @@
-require ( './helpers.js' );
+// Load necessary modules
+require('./helpers.js'); // Assuming helpers.js is required
 
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
-const js = fs.readFileSync(path.resolve(__dirname, '..', 'index.js'), 'utf-8')
+// Read index.js file
+const js = fs.readFileSync(path.resolve(__dirname, '..', 'index.js'), 'utf-8');
 
+// Set up Mocha tests
 describe('index.js', function () {
   describe('companyName', function () {
     it('is set as Scuber', function () {
@@ -12,7 +15,7 @@ describe('index.js', function () {
     });
 
     it('is defined as a const', function () {
-      expect(js).to.match(/const companyName/, "Expected companyName to be a const");
+      expect(js).to.match(/const companyName/);
     });
   });
 
@@ -22,7 +25,7 @@ describe('index.js', function () {
     });
 
     it('is defined using let', function () {
-      expect(js).to.match(/let mostProfitableNeighborhood/, "Expected mostProfitableNeighborhood to be defined using let");
+      expect(js).to.match(/let mostProfitableNeighborhood/);
     });
   });
 
@@ -32,7 +35,7 @@ describe('index.js', function () {
     });
 
     it('is defined using let', function () {
-      expect(js).to.match(/let companyCeo/, "Expected companyCeo to be defined using let");
+      expect(js).to.match(/let companyCeo/);
     });
   });
 });
